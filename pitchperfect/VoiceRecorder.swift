@@ -19,14 +19,13 @@ class VoiceRecorder : NSObject{
         configureAudioSession()
     }
     
-    
     func configureAudioSession() {
     
         let session = AVAudioSession.sharedInstance()
         do {
             
             try session.setCategory(AVAudioSessionCategoryRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
-            try  session.setActive(true)
+            try session.setActive(true)
             session.requestRecordPermission{ (granted) in
                 // done
             }
@@ -39,8 +38,9 @@ class VoiceRecorder : NSObject{
     func record(){
         print("record")
         do {
-            let filePath = createFilePathOnDocumentsFolder()
-            audioRecorder = try AVAudioRecorder(url: filePath as URL, settings: [:])
+            self.recordedVoice = RecordedVoice()
+            self.recordedVoice!.path = createFilePathOnDocumentsFolder() as URL
+            audioRecorder = try AVAudioRecorder(url: self.recordedVoice!.path!, settings: [:])
             audioRecorder.delegate = self
         } catch {
             // Error

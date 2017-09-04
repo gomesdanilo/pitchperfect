@@ -14,7 +14,7 @@
 		9956C5F11F5D6CD900EA0CF9 /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F01F5D6CD900EA0CF9 /* RecordSoundsViewController.swift */; };
 		9956C5F31F5D6CEA00EA0CF9 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F21F5D6CEA00EA0CF9 /* PlaySoundsViewController.swift */; };
 		9956C5F51F5D72F100EA0CF9 /* VoicePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F41F5D72F100EA0CF9 /* VoicePlayer.swift */; };
-		9956C5F71F5D73A700EA0CF9 /* AudioRecorded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F61F5D73A700EA0CF9 /* AudioRecorded.swift */; };
+		9956C5F71F5D73A700EA0CF9 /* RecordedVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F61F5D73A700EA0CF9 /* RecordedVoice.swift */; };
 		9956C5F91F5D74C700EA0CF9 /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		9956C5F01F5D6CD900EA0CF9 /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
 		9956C5F21F5D6CEA00EA0CF9 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		9956C5F41F5D72F100EA0CF9 /* VoicePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicePlayer.swift; sourceTree = "<group>"; };
-		9956C5F61F5D73A700EA0CF9 /* AudioRecorded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorded.swift; sourceTree = "<group>"; };
+		9956C5F61F5D73A700EA0CF9 /* RecordedVoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedVoice.swift; sourceTree = "<group>"; };
 		9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,18 +62,50 @@
 		9956C5DD1F5D6B5E00EA0CF9 /* pitchperfect */ = {
 			isa = PBXGroup;
 			children = (
+				9956C5FC1F5D7C4700EA0CF9 /* Controller */,
+				9956C5FB1F5D7C4300EA0CF9 /* View */,
+				9956C5FA1F5D7C3E00EA0CF9 /* Model */,
 				9956C5DE1F5D6B5E00EA0CF9 /* AppDelegate.swift */,
 				9956C5E21F5D6B5E00EA0CF9 /* Main.storyboard */,
 				9956C5E51F5D6B5E00EA0CF9 /* Assets.xcassets */,
 				9956C5E71F5D6B5E00EA0CF9 /* LaunchScreen.storyboard */,
 				9956C5EA1F5D6B5E00EA0CF9 /* Info.plist */,
-				9956C5F01F5D6CD900EA0CF9 /* RecordSoundsViewController.swift */,
-				9956C5F21F5D6CEA00EA0CF9 /* PlaySoundsViewController.swift */,
-				9956C5F41F5D72F100EA0CF9 /* VoicePlayer.swift */,
-				9956C5F61F5D73A700EA0CF9 /* AudioRecorded.swift */,
-				9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */,
 			);
 			path = pitchperfect;
+			sourceTree = "<group>";
+		};
+		9956C5FA1F5D7C3E00EA0CF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9956C5F61F5D73A700EA0CF9 /* RecordedVoice.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9956C5FB1F5D7C4300EA0CF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9956C5FC1F5D7C4700EA0CF9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9956C5FD1F5D7C6000EA0CF9 /* Audio */,
+				9956C5F01F5D6CD900EA0CF9 /* RecordSoundsViewController.swift */,
+				9956C5F21F5D6CEA00EA0CF9 /* PlaySoundsViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9956C5FD1F5D7C6000EA0CF9 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				9956C5F41F5D72F100EA0CF9 /* VoicePlayer.swift */,
+				9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +185,7 @@
 				9956C5F91F5D74C700EA0CF9 /* VoiceRecorder.swift in Sources */,
 				9956C5DF1F5D6B5E00EA0CF9 /* AppDelegate.swift in Sources */,
 				9956C5F51F5D72F100EA0CF9 /* VoicePlayer.swift in Sources */,
-				9956C5F71F5D73A700EA0CF9 /* AudioRecorded.swift in Sources */,
+				9956C5F71F5D73A700EA0CF9 /* RecordedVoice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

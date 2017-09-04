@@ -120,56 +120,74 @@
                                                             <constraint firstAttribute="height" constant="90" id="jlE-Hg-dAh"/>
                                                         </constraints>
                                                         <state key="normal" image="Slow"/>
+                                                        <connections>
+                                                            <action selector="didClickOnRecord:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="XLY-FR-1F5"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocf-zD-UAF">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocf-zD-UAF">
                                                         <rect key="frame" x="110" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="1yi-h3-SuA"/>
                                                             <constraint firstAttribute="width" constant="90" id="he1-2O-bbK"/>
                                                         </constraints>
                                                         <state key="normal" image="Fast"/>
+                                                        <connections>
+                                                            <action selector="didClickOnRecord:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="YvB-xU-jDX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OC2-e6-euI">
                                                 <rect key="frame" x="0.0" y="110" width="200" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-i6-O0y">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-i6-O0y">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="em4-mI-9B4"/>
                                                             <constraint firstAttribute="height" constant="90" id="xmE-xS-KMV"/>
                                                         </constraints>
                                                         <state key="normal" image="HighPitch"/>
+                                                        <connections>
+                                                            <action selector="didClickOnRecord:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="vBj-v6-1uR"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqB-nU-xUv">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqB-nU-xUv">
                                                         <rect key="frame" x="110" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="59y-vG-Ld0"/>
                                                             <constraint firstAttribute="width" constant="90" id="YnN-ap-E7M"/>
                                                         </constraints>
                                                         <state key="normal" image="LowPitch"/>
+                                                        <connections>
+                                                            <action selector="didClickOnRecord:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="GvN-Vu-0lK"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-5b-2xP">
                                                 <rect key="frame" x="0.0" y="220" width="200" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GK-0p-0hc">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GK-0p-0hc">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="Exc-gb-cyx"/>
                                                             <constraint firstAttribute="width" constant="90" id="Kmv-ty-2ja"/>
                                                         </constraints>
                                                         <state key="normal" image="Echo"/>
+                                                        <connections>
+                                                            <action selector="didClickOnRecord:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="nA7-Ja-lMZ"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRb-bo-VfE">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRb-bo-VfE">
                                                         <rect key="frame" x="110" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="IXD-g7-mgw"/>
                                                             <constraint firstAttribute="height" constant="90" id="e1h-qv-oLU"/>
                                                         </constraints>
                                                         <state key="normal" image="Reverb"/>
+                                                        <connections>
+                                                            <action selector="didClickOnRecord:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="DsW-21-lll"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -182,6 +200,9 @@
                                             <constraint firstAttribute="height" constant="155" id="eQ7-bx-Pt9"/>
                                         </constraints>
                                         <state key="normal" image="Stop"/>
+                                        <connections>
+                                            <action selector="didClickOnStop:" destination="HSK-Pa-c0d" eventType="touchUpInside" id="fv9-UW-pg1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -200,6 +221,12 @@
                         <outlet property="reverbButton" destination="fRb-bo-VfE" id="22U-bh-OsF"/>
                         <outlet property="slowButton" destination="YyZ-qW-mvR" id="WmU-hn-b9E"/>
                         <outlet property="stopButton" destination="NVR-Au-6XX" id="Qh8-l4-Jav"/>
+                        <outletCollection property="modeButtonList" destination="YyZ-qW-mvR" collectionClass="NSMutableArray" id="rq3-F5-zvv"/>
+                        <outletCollection property="modeButtonList" destination="Ocf-zD-UAF" collectionClass="NSMutableArray" id="BDN-pc-vC0"/>
+                        <outletCollection property="modeButtonList" destination="fKE-i6-O0y" collectionClass="NSMutableArray" id="KEt-co-9Pg"/>
+                        <outletCollection property="modeButtonList" destination="IqB-nU-xUv" collectionClass="NSMutableArray" id="7wA-eT-Jza"/>
+                        <outletCollection property="modeButtonList" destination="2GK-0p-0hc" collectionClass="NSMutableArray" id="8yk-p3-U1D"/>
+                        <outletCollection property="modeButtonList" destination="fRb-bo-VfE" collectionClass="NSMutableArray" id="tJT-op-jzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONo-ls-ZpL" userLabel="First Responder" sceneMemberID="firstResponder"/>

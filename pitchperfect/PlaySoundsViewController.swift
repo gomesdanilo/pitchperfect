@@ -18,24 +18,68 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
+    @IBOutlet var modeButtonList: [UIButton]!
+    var recordedVoice : RecordedVoice?
+    
+    var voicePlayer : VoicePlayer?
     
     
-    
-    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        updateUiStopped()
+        voicePlayer = VoicePlayer()
     }
     
+    func getModeFromTag(_ tag : Int) -> VoiceMode {
+        
+        switch tag {
+            case 0:
+                return VoiceMode.slow
+            case 1:
+                return VoiceMode.fast
+            case 2:
+                return VoiceMode.highPitch
+            case 3:
+                return VoiceMode.lowPitch
+            case 4:
+                return VoiceMode.echo
+            case 5:
+                return VoiceMode.reverb
+            default:
+                return VoiceMode.slow
+        }
+    }
+    
+    @IBAction func didClickOnRecord(_ sender: UIButton) {
+        let mode = getModeFromTag(sender.tag)
+        voicePlayer?.playAudio(audio: recordedVoice!, mode: mode)
+        updateUiPlaying()
+    }
+    
+    @IBAction func didClickOnStop(_ sender: Any) {
+        updateUiStopped()
+        voicePlayer?.stop()
+    }
+    
+    
+    func updateUiPlaying(){
+        
+        for btn in modeButtonList {
+            btn.isEnabled = false
+        }
+        
+        stopButton.isEnabled = true
+    }
+    
+    func updateUiStopped(){
+        
+        for btn in modeButtonList {
+            btn.isEnabled = true
+        }
+        
+        stopButton.isEnabled = false
+    
+    }
     
 
 }

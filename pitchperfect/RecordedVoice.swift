@@ -9,5 +9,5 @@
 import UIKit
 
 class RecordedVoice {
-
+    var path : URL?
 }
