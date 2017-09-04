@@ -33,6 +33,9 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
     func playAudio(audio : RecordedVoice, mode: VoiceMode, playbackFinished : @escaping (String?) -> Void){
         
         do {
+            // Resets any pending timers.
+            stop()
+            
             completionHandler = playbackFinished
             audioFile = try AVAudioFile(forReading: audio.path!)
 
@@ -56,9 +59,9 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
     }
     
     func stop() {
-        
         if let timer = stopTimer {
             timer.invalidate()
+            stopTimer = nil
         }
 
         if let audioPlayerNode = audioPlayerNode {
@@ -172,7 +175,7 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
         
         connectAudioNodes(nodes: audioNodes)
 
-        try schedulePlay()
+        try schedulePlay(rate: rate)
     }
 
     func connectAudioNodes(nodes: [AVAudioNode]) {
