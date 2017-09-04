@@ -65,11 +65,7 @@
 				9956C5FC1F5D7C4700EA0CF9 /* Controller */,
 				9956C5FB1F5D7C4300EA0CF9 /* View */,
 				9956C5FA1F5D7C3E00EA0CF9 /* Model */,
-				9956C5DE1F5D6B5E00EA0CF9 /* AppDelegate.swift */,
-				9956C5E21F5D6B5E00EA0CF9 /* Main.storyboard */,
-				9956C5E51F5D6B5E00EA0CF9 /* Assets.xcassets */,
-				9956C5E71F5D6B5E00EA0CF9 /* LaunchScreen.storyboard */,
-				9956C5EA1F5D6B5E00EA0CF9 /* Info.plist */,
+				99E0426D1F5DA8D000AA7000 /* Resources */,
 			);
 			path = pitchperfect;
 			sourceTree = "<group>";
@@ -85,6 +81,8 @@
 		9956C5FB1F5D7C4300EA0CF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9956C5E21F5D6B5E00EA0CF9 /* Main.storyboard */,
+				9956C5E71F5D6B5E00EA0CF9 /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -106,6 +104,16 @@
 				9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		99E0426D1F5DA8D000AA7000 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9956C5DE1F5D6B5E00EA0CF9 /* AppDelegate.swift */,
+				9956C5E51F5D6B5E00EA0CF9 /* Assets.xcassets */,
+				9956C5EA1F5D6B5E00EA0CF9 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +357,7 @@
 				9956C5EF1F5D6B5E00EA0CF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
