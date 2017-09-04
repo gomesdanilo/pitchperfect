@@ -19,10 +19,9 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     @IBOutlet var modeButtonList: [UIButton]!
+    
     var recordedVoice : RecordedVoice?
-    
     var voicePlayer : VoicePlayer?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +51,22 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func didClickOnRecord(_ sender: UIButton) {
         let mode = getModeFromTag(sender.tag)
-        voicePlayer?.playAudio(audio: recordedVoice!, mode: mode)
-        updateUiPlaying()
+        
+        if let player = voicePlayer, let voice = recordedVoice {
+            player.playAudio(audio: voice, mode: mode, playbackFinished: { (msg) in
+                self.didClickOnStop(self)
+            })
+            
+            updateUiPlaying()
+        }
     }
     
     @IBAction func didClickOnStop(_ sender: Any) {
         updateUiStopped()
-        voicePlayer?.stop()
+        if let player = voicePlayer {
+            player.stop()
+        }
     }
-    
     
     func updateUiPlaying(){
         
@@ -78,8 +84,5 @@ class PlaySoundsViewController: UIViewController {
         }
         
         stopButton.isEnabled = false
-    
     }
-    
-
 }
