@@ -12,10 +12,16 @@ Specs
 - Swift 3.0
 
 ![](/Screenshots/01.png)
+
 ![](/Screenshots/02.png)
+
 ![](/Screenshots/03.png)
+
 ![](/Screenshots/04.png)
+
 ![](/Screenshots/05.png)
+
 ![](/Screenshots/06.png)
+
 ![](/Screenshots/07.png)
 
