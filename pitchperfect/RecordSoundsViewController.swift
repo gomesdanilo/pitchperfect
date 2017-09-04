@@ -15,6 +15,7 @@ class RecordSoundsViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     var recorder : VoiceRecorder?
+    var recordedVoice : RecordedVoice?
     
     @IBAction func didClickOnRecord(_ sender: Any) {
         if let rec = recorder {
@@ -28,13 +29,13 @@ class RecordSoundsViewController: UIViewController {
         if let rec = recorder {
             rec.stop()
             updateUiForPaused()
-            goToPlayScreen()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recorder = VoiceRecorder()
+        recorder!.delegate = self
         updateUiForPaused()
     }
     
@@ -56,9 +57,21 @@ class RecordSoundsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "play"){
-            if let vc = segue.destination as? PlaySoundsViewController, let rec = recorder {
-                vc.recordedVoice = rec.recordedVoice
+            if let vc = segue.destination as? PlaySoundsViewController, let rec = recordedVoice {
+                vc.recordedVoice = rec
             }
         }
+    }
+}
+
+extension RecordSoundsViewController : VoiceRecorderDelegate {
+    
+    func errorRecordingAudio(message: String) {
+        AlertMessage.showError(message: message, viewController: self)
+    }
+    
+    func didRecordAudio(audio: RecordedVoice) {
+        self.recordedVoice = audio
+        goToPlayScreen()
     }
 }

@@ -9,10 +9,17 @@
 import UIKit
 import  AVFoundation
 
+protocol VoiceRecorderDelegate {
+    func didRecordAudio(audio : RecordedVoice)
+    func errorRecordingAudio(message : String)
+}
+
 class VoiceRecorder : NSObject{
     
-    var audioRecorder: AVAudioRecorder!
-    var recordedVoice: RecordedVoice?
+    var delegate : VoiceRecorderDelegate?
+    
+    fileprivate var audioRecorder: AVAudioRecorder!
+    fileprivate var recordedVoice: RecordedVoice?
     
     override init() {
         super.init()
@@ -36,7 +43,6 @@ class VoiceRecorder : NSObject{
     
     
     func record(){
-        print("record")
         do {
             self.recordedVoice = RecordedVoice()
             self.recordedVoice!.path = createFilePathOnDocumentsFolder() as URL
@@ -52,7 +58,6 @@ class VoiceRecorder : NSObject{
     }
     
     func stop(){
-        print("stop record")
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
@@ -69,13 +74,15 @@ class VoiceRecorder : NSObject{
 extension VoiceRecorder : AVAudioRecorderDelegate {
 
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        // Done
-        print("audioRecorderDidFinishRecording")
+        if let del = self.delegate, let audio = recordedVoice {
+            del.didRecordAudio(audio: audio)
+        }
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         // Error
-        print("audioRecorderEncodeErrorDidOccur")
+        if let del = self.delegate {
+            del.errorRecordingAudio(message: "Failed to record audio.")
+        }
     }
-
 }

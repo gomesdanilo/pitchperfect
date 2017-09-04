@@ -16,6 +16,7 @@
 		9956C5F51F5D72F100EA0CF9 /* VoicePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F41F5D72F100EA0CF9 /* VoicePlayer.swift */; };
 		9956C5F71F5D73A700EA0CF9 /* RecordedVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F61F5D73A700EA0CF9 /* RecordedVoice.swift */; };
 		9956C5F91F5D74C700EA0CF9 /* VoiceRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */; };
+		99E0426F1F5DAA0800AA7000 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E0426E1F5DAA0800AA7000 /* AlertMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9956C5F41F5D72F100EA0CF9 /* VoicePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicePlayer.swift; sourceTree = "<group>"; };
 		9956C5F61F5D73A700EA0CF9 /* RecordedVoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedVoice.swift; sourceTree = "<group>"; };
 		9956C5F81F5D74C700EA0CF9 /* VoiceRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecorder.swift; sourceTree = "<group>"; };
+		99E0426E1F5DAA0800AA7000 /* AlertMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				9956C5E21F5D6B5E00EA0CF9 /* Main.storyboard */,
 				9956C5E71F5D6B5E00EA0CF9 /* LaunchScreen.storyboard */,
+				99E0426E1F5DAA0800AA7000 /* AlertMessage.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				9956C5DF1F5D6B5E00EA0CF9 /* AppDelegate.swift in Sources */,
 				9956C5F51F5D72F100EA0CF9 /* VoicePlayer.swift in Sources */,
 				9956C5F71F5D73A700EA0CF9 /* RecordedVoice.swift in Sources */,
+				99E0426F1F5DAA0800AA7000 /* AlertMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

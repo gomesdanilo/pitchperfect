@@ -38,20 +38,20 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
 
             switch (mode) {
                 case .slow:
-                    playSound(rate: 0.5)
+                    try playSound(rate: 0.5)
                 case .fast:
-                    playSound(rate: 1.5)
+                    try playSound(rate: 1.5)
                 case .highPitch:
-                    playSound(pitch: 1000)
+                    try playSound(pitch: 1000)
                 case .lowPitch:
-                    playSound(pitch: -1000)
+                    try playSound(pitch: -1000)
                 case .echo:
-                    playSound(echo: true)
+                    try playSound(echo: true)
                 case .reverb:
-                    playSound(reverb: true)
+                    try playSound(reverb: true)
             }
         } catch  {
-            // error
+            playbackFinished("Failed to play audio")
         }
     }
     
@@ -135,7 +135,7 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
     }
     
 
-    func schedulePlay(rate: Float? = nil) {
+    func schedulePlay(rate: Float? = nil) throws {
         
         audioPlayerNode.stop()
         audioPlayerNode!.scheduleFile(audioFile!, at: nil) {
@@ -154,11 +154,12 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
             audioPlayerNode.play()
         } catch {
             // Error
+            throw error
         }
     }
     
     func playSound(rate: Float? = nil, pitch: Float? = nil,
-                   echo: Bool = false, reverb: Bool = false) {
+                   echo: Bool = false, reverb: Bool = false) throws {
         
         var audioNodes : [AVAudioNode] = []
         
@@ -171,7 +172,7 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
         
         connectAudioNodes(nodes: audioNodes)
 
-        schedulePlay()
+        try schedulePlay()
     }
 
     func connectAudioNodes(nodes: [AVAudioNode]) {
