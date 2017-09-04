@@ -24,6 +24,7 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: Timer!
     var audioFile : AVAudioFile?
+    var completionHandler: (String?) -> Void = {_ in }
     
     override init() {
         super.init()
@@ -32,6 +33,7 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
     func playAudio(audio : RecordedVoice, mode: VoiceMode, playbackFinished : @escaping (String?) -> Void){
         
         do {
+            completionHandler = playbackFinished
             audioFile = try AVAudioFile(forReading: audio.path!)
 
             switch (mode) {
@@ -138,13 +140,13 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
         audioPlayerNode.stop()
         audioPlayerNode!.scheduleFile(audioFile!, at: nil) {
             
-//            let playbackTime = self.getPlaybackTime()
-//            
-//            self.stopTimer = Timer(timeInterval: playbackTime, repeats: false, block: { (timer) in
-//                self.stop()
-//            })
-//            
-//            RunLoop.main.add(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)
+            let playbackTime = self.getPlaybackTime(rate: rate)
+
+            self.stopTimer = Timer(timeInterval: playbackTime, repeats: false, block: { (timer) in
+                self.stop()
+                self.completionHandler(nil)
+            })
+            RunLoop.main.add(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)
         }
         
         do {
@@ -154,7 +156,6 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
             // Error
         }
     }
-
     
     func playSound(rate: Float? = nil, pitch: Float? = nil,
                    echo: Bool = false, reverb: Bool = false) {
@@ -162,15 +163,15 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
         var audioNodes : [AVAudioNode] = []
         
         initializeEngine(output: &audioNodes)
-        //adjustRateAndPitch(rate: rate, pitch: pitch, output: &audioNodes)
-        //adjustEcho(echo: echo, output: &audioNodes)
-        //adjustReverb(reverb: reverb, output: &audioNodes)
+        adjustRateAndPitch(rate: rate, pitch: pitch, output: &audioNodes)
+        adjustEcho(echo: echo, output: &audioNodes)
+        adjustReverb(reverb: reverb, output: &audioNodes)
         
-        //connectAudioNodes(nodes: audioNodes)
-        audioEngine?.connect(audioPlayerNode!, to: audioEngine!.mainMixerNode, format: audioFile!.processingFormat)
+        audioNodes.append(audioEngine!.outputNode)
         
+        connectAudioNodes(nodes: audioNodes)
+
         schedulePlay()
-        
     }
 
     func connectAudioNodes(nodes: [AVAudioNode]) {
@@ -178,5 +179,4 @@ class VoicePlayer : NSObject, AVAudioPlayerDelegate {
             audioEngine?.connect(nodes[x], to: nodes[x+1], format: audioFile!.processingFormat)
         }
     }
-    
 }
